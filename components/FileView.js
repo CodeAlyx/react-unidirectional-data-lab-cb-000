@@ -1,12 +1,20 @@
-'use strict'
+'use strict';
 
 import React from 'react';
 import Toolbar from './Toolbar';
 
 export default class FileView extends React.Component {
   render() {
+    const { file, onChange, onAdd, onRemove } = this.props;
     return (
-      <div>
+      <div className='file-view'>
+        <Toolbar onAdd={this.props.onAdd} onRemove={this.props.onRemove} />
+        <textarea
+          className='file-view__text'
+          placeholder='type some text here...'
+          value={file}
+          onChange={onChange}
+        />
       </div>
     );
   }
